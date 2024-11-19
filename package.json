@@ -1,5 +1,5 @@
 {
-    "name": "quicktype",
+    "name": "quicktype-wosherco",
     "version": "23.0.0",
     "license": "Apache-2.0",
     "main": "dist/index.js",
