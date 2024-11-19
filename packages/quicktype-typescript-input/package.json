@@ -1,25 +1,24 @@
 {
-  "name": "quicktype-typescript-input-wosherco",
-  "version": "23.0.171-fix",
-  "description": "Package for using TypeScript as an input language to quicktype",
-  "license": "Apache-2.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "repository": "https://github.com/quicktype/quicktype",
-  "scripts": {
-    "clean": "rm -rf dist node_modules *~",
-    "build": "tsc"
-  },
-  "dependencies": {
-    "quicktype-core": "file:../quicktype-core",
-    "typescript": "4.9.5",
-    "@mark.probst/typescript-json-schema": "0.55.0",
-    "quicktype-core-wosherco": "23.0.171-fix"
-  },
-  "devDependencies": {
-    "@types/node": "18.19.31"
-  },
-  "files": [
-    "dist"
-  ]
+    "name": "quicktype-typescript-input-wosherco",
+    "version": "23.0.171-fix",
+    "description": "Package for using TypeScript as an input language to quicktype",
+    "license": "Apache-2.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "repository": "https://github.com/quicktype/quicktype",
+    "scripts": {
+        "clean": "rm -rf dist node_modules *~",
+        "build": "tsc"
+    },
+    "dependencies": {
+        "quicktype-core-wosherco": "file:../quicktype-core",
+        "typescript": "4.9.5",
+        "@mark.probst/typescript-json-schema": "0.55.0"
+    },
+    "devDependencies": {
+        "@types/node": "18.19.31"
+    },
+    "files": [
+        "dist"
+    ]
 }
