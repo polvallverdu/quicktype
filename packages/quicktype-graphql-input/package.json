@@ -1,26 +1,27 @@
 {
-    "name": "quicktype-graphql-input-wosherco",
-    "version": "23.0.171",
-    "package": "Package for using GraphQL as an input language to quicktype",
-    "license": "Apache-2.0",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "repository": "https://github.com/quicktype/quicktype",
-    "scripts": {
-        "clean": "rm -rf dist node_modules *~",
-        "build": "tsc"
-    },
-    "dependencies": {
-        "quicktype-core": "file:../quicktype-core",
-        "collection-utils": "^1.0.1",
-        "graphql": "^0.11.7"
-    },
-    "devDependencies": {
-        "@types/node": "18.19.31",
-        "@types/graphql": "^0.11.7",
-        "typescript": "4.9.5"
-    },
-    "files": [
-        "dist"
-    ]
+  "name": "quicktype-graphql-input-wosherco",
+  "version": "23.0.171-fix",
+  "package": "Package for using GraphQL as an input language to quicktype",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/quicktype/quicktype",
+  "scripts": {
+    "clean": "rm -rf dist node_modules *~",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "quicktype-core": "file:../quicktype-core",
+    "collection-utils": "^1.0.1",
+    "graphql": "^0.11.7",
+    "quicktype-core-wosherco": "23.0.171-fix"
+  },
+  "devDependencies": {
+    "@types/node": "18.19.31",
+    "@types/graphql": "^0.11.7",
+    "typescript": "4.9.5"
+  },
+  "files": [
+    "dist"
+  ]
 }
