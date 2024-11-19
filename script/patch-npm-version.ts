@@ -18,7 +18,7 @@ const PUBLISHED = (() => {
     return all[all.length - 1];
 })();
 
-const CURRENT = exec(`npm version`).match(/quicktype: '(.+)'/)![1];
+const CURRENT = exec(`npm version`).match(/'quicktype-wosherco': '(.+)'/)![1];
 switch (semver.compare(CURRENT, PUBLISHED)) {
     case -1:
         console.error(`* package.json version is ${CURRENT} but ${PUBLISHED} is published. Patching...`);
