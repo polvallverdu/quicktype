@@ -38,9 +38,9 @@
         "stream-json": "1.8.0",
         "string-to-stream": "^3.0.1",
         "typescript": "4.9.5",
-        "quicktype-core-wosherco": "23.0.171-fix",
-        "quicktype-graphql-input-wosherco": "23.0.171-fix",
-        "quicktype-typescript-input-wosherco": "23.0.171-fix"
+        "quicktype-core-wosherco": "file:./packages/quicktype-core",
+        "quicktype-graphql-input-wosherco": "file:./packages/quicktype-graphql-input",
+        "quicktype-typescript-input-wosherco": "file:./packages/quicktype-typescript-input"
     },
     "devDependencies": {
         "@tsconfig/node18": "^1.0.1",
