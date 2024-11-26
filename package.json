@@ -1,6 +1,6 @@
 {
     "name": "quicktype-wosherco",
-    "version": "23.0.171-fix4",
+    "version": "23.0.171-fix5",
     "license": "Apache-2.0",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
