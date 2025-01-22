@@ -1,6 +1,6 @@
 import { anyTypeIssueAnnotation, nullTypeIssueAnnotation } from "../../Annotation";
 import { ConvenienceRenderer, type ForbiddenWordsInfo } from "../../ConvenienceRenderer";
-import { DependencyName, type Name, type Namer } from "../../Naming";
+import { DependencyName, SimpleName, type Name, type Namer } from "../../Naming";
 import { type RenderContext } from "../../Renderer";
 import { type OptionValues } from "../../RendererOptions";
 import { type Sourcelike, maybeAnnotated, modifySource } from "../../Source";
@@ -722,8 +722,17 @@ export class DartRenderer extends ConvenienceRenderer {
                             nestedTypeName = `List<${this.getNestedTypeName(this.resolveTypeName(prop.type.items))}>`;
                         } else if (prop.type instanceof MapType && prop.type.values instanceof ObjectType) {
                             nestedTypeName = `Map<String, ${this.getNestedTypeName(this.resolveTypeName(prop.type.values))}>`;
-                        } else if (prop.type instanceof EnumType) {
+                        } else if (prop.type instanceof EnumType || prop.type.kind === "enum") {
                             nestedTypeName = this.getNestedTypeName(this.nameForNamedType(prop.type));
+                            console.log("ENUM", nestedTypeName);
+                        } else if (prop.type.kind === "union") {
+                            nestedTypeName = this.dartType(prop.type);
+                            if (Array.isArray(nestedTypeName)) {
+                                nestedTypeName = nestedTypeName[0];
+                                if (nestedTypeName instanceof SimpleName) {
+                                    nestedTypeName = this.getNestedTypeName(nestedTypeName);
+                                }
+                            }
                         } else {
                             nestedTypeName = this.dartType(prop.type);
                         }
