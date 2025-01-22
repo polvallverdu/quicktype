@@ -709,7 +709,7 @@ export class DartRenderer extends ConvenienceRenderer {
                     const requiredFields = this.getRequiredFieldsForClass(c);
 
                     this.popFromParentStack();
-                    this.forEachClassProperty(c, "none", (name, jsonName, prop) => {
+                    this.forEachClassProperty(c, "none", (_, jsonName, prop) => {
                         // Determine if this field is required
                         const isRequired = requiredFields.has(jsonName);
 
@@ -738,7 +738,7 @@ export class DartRenderer extends ConvenienceRenderer {
                         }
 
                         // Emit the field with or without `required` based on its necessity
-                        this.emitLine(isRequired ? "required " : "", nestedTypeName, " ", name, ",");
+                        this.emitLine(isRequired ? "required " : "", nestedTypeName, " ", jsonName, ",");
                     });
                 });
                 this.emitLine("}) = _", resolvedClassName, ";");
