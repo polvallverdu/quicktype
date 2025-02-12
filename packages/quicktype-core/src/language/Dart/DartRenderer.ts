@@ -724,7 +724,6 @@ export class DartRenderer extends ConvenienceRenderer {
                             nestedTypeName = `Map<String, ${this.getNestedTypeName(this.resolveTypeName(prop.type.values))}>`;
                         } else if (prop.type instanceof EnumType || prop.type.kind === "enum") {
                             nestedTypeName = this.getNestedTypeName(this.nameForNamedType(prop.type));
-                            console.log("ENUM", nestedTypeName);
                         } else if (prop.type.kind === "union") {
                             nestedTypeName = this.dartType(prop.type);
                             if (Array.isArray(nestedTypeName)) {
