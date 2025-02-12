@@ -712,6 +712,7 @@ export class DartRenderer extends ConvenienceRenderer {
                     this.forEachClassProperty(c, "none", (_, jsonName, prop) => {
                         // Determine if this field is required
                         const isRequired = requiredFields.has(jsonName);
+                        const isNullable = prop.type.isNullable;
 
                         // Resolve nested type names correctly
                         let nestedTypeName;
@@ -737,7 +738,14 @@ export class DartRenderer extends ConvenienceRenderer {
                         }
 
                         // Emit the field with or without `required` based on its necessity
-                        this.emitLine(isRequired ? "required " : "", nestedTypeName, " ", jsonName, ",");
+                        this.emitLine(
+                            isRequired ? "required " : "",
+                            nestedTypeName,
+                            isNullable ? "?" : "",
+                            " ",
+                            jsonName,
+                            ","
+                        );
                     });
                 });
                 this.emitLine("}) = _", resolvedClassName, ";");
