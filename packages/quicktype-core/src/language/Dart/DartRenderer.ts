@@ -1,6 +1,6 @@
 import { anyTypeIssueAnnotation, nullTypeIssueAnnotation } from "../../Annotation";
 import { ConvenienceRenderer, type ForbiddenWordsInfo } from "../../ConvenienceRenderer";
-import { DependencyName, SimpleName, type Name, type Namer } from "../../Naming";
+import { DependencyName, type Name, type Namer, SimpleName } from "../../Naming";
 import { type RenderContext } from "../../Renderer";
 import { type OptionValues } from "../../RendererOptions";
 import { type Sourcelike, maybeAnnotated, modifySource } from "../../Source";
@@ -619,22 +619,9 @@ export class DartRenderer extends ConvenienceRenderer {
     }
 
     private popFromParentStack(): void {
-        // console.log("Poping from parent stack:", this.parentStack);
         const popped = this.parentStack.pop();
 
-        // console.log("BC", popped)
-        if (popped && popped.includes("_")) {
-            // Split the string on underscores and take the last part
-            // console.log("Removing", popped)
-            const lastPart = popped.split("_").pop();
-            // console.log("Removing", lastPart)
-            if (lastPart) {
-                this.parentStack.push(lastPart);
-                // Push the last part back into the parent stack
-            }
-        } else {
-            this.parentStack.push(popped ? popped : "parent");
-        }
+        this.parentStack.push(popped ? popped : "parent");
     }
 
     private isSimpleName(value: unknown): value is Name {
